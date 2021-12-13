@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  komobox:
+    build: ./komobox
+    environment:
+      ENDPOINT: http://minikom:8080/event
+    depends_on:
+      - minikom
+  minikom:
+    # This should be replaced with your implementation
+    image: hashicorp/http-echo
+    command: -listen=:8080 -text=komodor
+    ports:
+      - 8080:8080
