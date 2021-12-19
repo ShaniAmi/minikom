@@ -7,8 +7,6 @@ services:
     depends_on:
       - minikom
   minikom:
-    # This should be replaced with your implementation
-    image: hashicorp/http-echo
-    command: -listen=:8080 -text=komodor
+    build: ./server
     ports:
       - 8080:8080
